@@ -26,6 +26,5 @@ int main() {
     printf("\nTotal = %d\n", sum);
     printf("Rata-rata = %.2f\n", (float)sum / n);
     printf("Nilai terbesar = %d\n", max);
-
     return 0;
 }
