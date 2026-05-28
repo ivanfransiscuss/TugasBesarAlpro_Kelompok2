@@ -4,7 +4,7 @@ int main() {
     int n;
     int sum = 0;
     int max;
-    // test perubahan
+    // test perubahan ini keren gk?
     printf("Masukkan jumlah data: ");
     if (scanf("%d", &n) != 1 || n <= 0) {
         printf("Input tidak valid.\n");
