@@ -2,6 +2,9 @@
 
 int main() {
     printf("hallo");
+
+    //raisa nambahin ini 
+    printf("coba");
     // ini ivan
 } // ini key duasekali
 
