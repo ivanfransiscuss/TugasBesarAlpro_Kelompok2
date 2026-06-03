@@ -1,13 +1,68 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main() {
-    printf("hallo");
+typedef struct{
+    int x;
+    int y;
+    char nama[20];
+    int skor;
+} hadiah;
 
-    //raisa nambahin ini 
-    printf("coba");
-    // ini ivan
-} // ini key duasekali
+void tambahHadiah(){
+    FILE *f;
+    hadiah h;
 
+    f = fopen("thadiah.txt","a");
 
- // ini key 
+    printf("x : ");
+    scanf("%d",&h.x);
+
+    printf("y : ");
+    scanf("%d",&h.y);
+
+    printf("nama : ");
+    scanf("%s",h.nama);
+
+    printf("skor : ");
+    scanf("%d",&h.skor);
+
+    fprintf(f,"%d %d %s %d\n",
+            h.x,
+            h.y,
+            h.nama,
+            h.skor);
+
+    fclose(f);
+}
+
+void tampilHadiah(){
+    FILE *f;
+    hadiah h;
+
+    f = fopen("thadiah.txt","r");
+
+    while(fscanf(f,"%d %d %s %d",
+          &h.x,
+          &h.y,
+          h.nama,
+          &h.skor)==4){
+
+        printf("%d %d %s %d\n",
+               h.x,
+               h.y,
+               h.nama,
+               h.skor);
+    }
+
+    fclose(f);
+}
+
+int main(){
+    tambahHadiah();
+
+    printf("\nIsi File:\n");
+    tampilHadiah();
+
+    return 0;
+}
 
