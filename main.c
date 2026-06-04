@@ -35,12 +35,12 @@ void tambahHadiah(){
 }
 
 void tampilHadiah(){
-    FILE *f;
+    FILE *fileHadiah;
     hadiah h;
 
-    f = fopen("thadiah.txt","r");
+    fileHadiah = fopen("thadiah.txt","r");
 
-    while(fscanf(f,"%d %d %s %d",
+    while(fscanf(fileHadiah,"%d %d %s %d",
           &h.x,
           &h.y,
           h.nama,
@@ -54,7 +54,7 @@ void tampilHadiah(){
                
     }
 
-    fclose(f);
+    fclose(fileHadiah);
 }
 
 int main(){
