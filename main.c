@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// tes commit ziohamdan
+// tes commit daffa nadhif
 typedef struct{
     int x;
     int y;
@@ -53,6 +53,7 @@ void tampilHadiah(){
                h.y,
                h.nama,
                h.skor);
+               
     }
 
     fclose(f);
