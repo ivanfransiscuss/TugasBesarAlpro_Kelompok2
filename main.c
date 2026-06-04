@@ -1,7 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-// tes commit daffa nadhif
 typedef struct{
     int x;
     int y;
