@@ -8,10 +8,10 @@ typedef struct{
 } hadiah;
 
 void tambahHadiah(){
-    FILE *f;
+    FILE *fileHadiah;
     hadiah h;
 
-    f = fopen("thadiah.txt","a");
+    fileHadiah = fopen("thadiah.txt","a");
 
     printf("x : ");
     scanf("%d",&h.x);
@@ -25,13 +25,13 @@ void tambahHadiah(){
     printf("skor : ");
     scanf("%d",&h.skor);
 
-    fprintf(f,"%d %d %s %d\n",
+    fprintf(fileHadiah,"%d %d %s %d\n",
             h.x,
             h.y,
             h.nama,
             h.skor);
 
-    fclose(f);
+    fclose(fileHadiah);
 }
 
 void tampilHadiah(){
