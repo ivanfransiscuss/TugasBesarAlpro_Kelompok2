@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// tes commit ziohamdan
 typedef struct{
     int x;
     int y;
