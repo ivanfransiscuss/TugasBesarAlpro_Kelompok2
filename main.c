@@ -17,7 +17,7 @@ void garisTitle(){
 
 void title(){
 
-    garisPagar();
+    garisTitle();
     printf(RED "|                                                                 |\n" RESET);
     printf(RED "|" RESET); printf(YELLOW "  ###          ###  ###########  ###########        ###########  " RESET); printf(RED "|\n" RESET); 
     printf(RED "|" RESET); printf(YELLOW "  ###          ###  ###########  ###########        ###########  " RESET); printf(RED "|\n" RESET);
@@ -28,7 +28,7 @@ void title(){
     printf(RED "|" RESET); printf(YELLOW "  ###########  ###      ###      ###########        ###########  " RESET); printf(RED "|\n" RESET);
     printf(RED "|" RESET); printf(YELLOW "  ###########  ###      ###      ###########        ###########  " RESET); printf(RED "|\n" RESET);
     printf(RED "|                                                                 |\n" RESET);
-    garisPagar();
+    garisTitle();
 
 }
 
