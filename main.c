@@ -1,11 +1,36 @@
 #include <stdio.h>
 
+#define RED "\033[31m"
+#define YELLOW "\033[33m"
+#define RESET "\033[m"
+
 typedef struct{
     int x;
     int y;
     char nama[20];
     int skor;
 } hadiah;
+
+void garisTitle(){
+    printf(RED "-------------------------------------------------------------------\n" RESET);
+}
+
+void title(){
+
+    garisPagar();
+    printf(RED "|                                                                 |\n" RESET);
+    printf(RED "|" RESET); printf(YELLOW "  ###          ###  ###########  ###########        ###########  " RESET); printf(RED "|\n" RESET); 
+    printf(RED "|" RESET); printf(YELLOW "  ###          ###  ###########  ###########        ###########  " RESET); printf(RED "|\n" RESET);
+    printf(RED "|" RESET); printf(YELLOW "  ###          ###      ###      ###                ###     ###  " RESET); printf(RED "|\n" RESET);
+    printf(RED "|" RESET); printf(YELLOW "  ###          ###      ###      ###########  ####  ###     ###  " RESET); printf(RED "|\n" RESET);
+    printf(RED "|" RESET); printf(YELLOW "  ###          ###      ###      ###########  ####  ###     ###  " RESET); printf(RED "|\n" RESET);
+    printf(RED "|" RESET); printf(YELLOW "  ###          ###      ###      ###                ###     ###  " RESET); printf(RED "|\n" RESET);
+    printf(RED "|" RESET); printf(YELLOW "  ###########  ###      ###      ###########        ###########  " RESET); printf(RED "|\n" RESET);
+    printf(RED "|" RESET); printf(YELLOW "  ###########  ###      ###      ###########        ###########  " RESET); printf(RED "|\n" RESET);
+    printf(RED "|                                                                 |\n" RESET);
+    garisPagar();
+
+}
 
 void tambahHadiah(){
     FILE *fileHadiah;
