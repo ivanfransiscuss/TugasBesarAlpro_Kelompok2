@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define RED "\033[31m"
 #define YELLOW "\033[33m"
@@ -26,24 +27,20 @@ void title(){
     printf(RED "-------------------------------------------------------------------\n" RESET);
 }
 
-void garisMenu(){
-    printf(RED "----------------------\n" RESET);
-}
-
 void menu(){
     printf("Menu:\n");
-    garisMenu();
+    printf(RED "----------------------\n" RESET);
     printf(RED "|" RESET); printf(" 1. Tambah Hadiah   "); printf(RED "|\n" RESET);
-    garisMenu();
-    garisMenu();
+    printf(RED "----------------------\n" RESET);
+    printf(RED "----------------------\n" RESET);
     printf(RED "|" RESET); printf(" 2. Tambah Gerak O  "); printf(RED "|\n" RESET);
-    garisMenu();
-    garisMenu();
+    printf(RED "----------------------\n" RESET);
+    printf(RED "----------------------\n" RESET);
     printf(RED "|" RESET); printf(" 3. Simulasi Lite-O "); printf(RED "|\n" RESET);
-    garisMenu();
-    garisMenu();
+    printf(RED "----------------------\n" RESET);
+    printf(RED "----------------------\n" RESET);
     printf(RED "|" RESET); printf(" 4. Keluar          "); printf(RED "|\n" RESET);
-    garisMenu(); 
+    printf(RED "----------------------\n" RESET); 
     printf("Masukkan Menu: ");
 }
 
@@ -154,16 +151,30 @@ void tampilGerak(){
 }
 
 int main(){
-    tambahHadiah();
+    int pilihMenu;
 
-    printf("\nIsi File:\n");
-    tampilHadiah();
-
-    tambahGerak();
-
-    printf("\nIsi File Gerak:\n");
-    tampilGerak();
-
+    do{
+        title();
+        menu();
+        scanf("%d", &pilihMenu);
+        switch(pilihMenu){
+            case 1:
+            tampilHadiah();
+            break;
+            case 2:
+            tampilGerak();
+            break;
+            case 3:
+            // Simulasi Lite-O
+            break;
+            case 4:
+            exit(0);
+            break;
+            default:
+            printf("Input tidak valid!!!\n");
+            break;
+        }
+    } while(pilihMenu != 4);
 
     return 0;
 }
