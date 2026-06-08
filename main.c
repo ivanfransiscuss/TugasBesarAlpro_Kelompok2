@@ -11,13 +11,8 @@ typedef struct{
     int skor;
 } hadiah;
 
-void garisTitle(){
-    printf(RED "-------------------------------------------------------------------\n" RESET);
-}
-
 void title(){
-
-    garisTitle();
+    printf(RED "-------------------------------------------------------------------\n" RESET);
     printf(RED "|                                                                 |\n" RESET);
     printf(RED "|" RESET); printf(YELLOW "  ###          ###  ###########  ###########        ###########  " RESET); printf(RED "|\n" RESET); 
     printf(RED "|" RESET); printf(YELLOW "  ###          ###  ###########  ###########        ###########  " RESET); printf(RED "|\n" RESET);
@@ -28,8 +23,28 @@ void title(){
     printf(RED "|" RESET); printf(YELLOW "  ###########  ###      ###      ###########        ###########  " RESET); printf(RED "|\n" RESET);
     printf(RED "|" RESET); printf(YELLOW "  ###########  ###      ###      ###########        ###########  " RESET); printf(RED "|\n" RESET);
     printf(RED "|                                                                 |\n" RESET);
-    garisTitle();
+    printf(RED "-------------------------------------------------------------------\n" RESET);
+}
 
+void garisMenu(){
+    printf(RED "----------------------\n" RESET);
+}
+
+void menu(){
+    printf("Menu:\n");
+    garisMenu();
+    printf(RED "|" RESET); printf(" 1. Tambah Hadiah   "); printf(RED "|\n" RESET);
+    garisMenu();
+    garisMenu();
+    printf(RED "|" RESET); printf(" 2. Tambah Gerak O  "); printf(RED "|\n" RESET);
+    garisMenu();
+    garisMenu();
+    printf(RED "|" RESET); printf(" 3. Simulasi Lite-O "); printf(RED "|\n" RESET);
+    garisMenu();
+    garisMenu();
+    printf(RED "|" RESET); printf(" 4. Keluar          "); printf(RED "|\n" RESET);
+    garisMenu(); 
+    printf("Masukkan Menu: ");
 }
 
 void tambahHadiah(){
@@ -38,7 +53,7 @@ void tambahHadiah(){
 
     fileHadiah = fopen("thadiah.txt","a");
 
-    printf("x : ");
+    printf("\nx : ");
     scanf("%d",&h.x);
 
     printf("y : ");
