@@ -12,8 +12,13 @@ typedef struct{
     int skor;
 } hadiah;
 
+typedef struct{
+    int x;
+    int y;
+} gerak;
+
 void title(){
-    printf(RED "-------------------------------------------------------------------\n" RESET);
+    printf(RED "\n-------------------------------------------------------------------\n" RESET);
     printf(RED "|                                                                 |\n" RESET);
     printf(RED "|" RESET); printf(YELLOW "  ###          ###  ###########  ###########        ###########  " RESET); printf(RED "|\n" RESET); 
     printf(RED "|" RESET); printf(YELLOW "  ###          ###  ###########  ###########        ###########  " RESET); printf(RED "|\n" RESET);
@@ -73,25 +78,59 @@ void tambahHadiah(){
 
 void tampilHadiah(){
     FILE *fileHadiah;
-    hadiah h;
+    hadiah h[50];
+    int jumlahHadiah = 0;
+    char mauIsi;
 
     fileHadiah = fopen("thadiah.txt","r");
 
-    while(fscanf(fileHadiah,"%d %d %s %d",
-          &h.x,
-          &h.y,
-          h.nama,
-          &h.skor)==4){
+    printf("\nIsi hadiah saat ini:\n");
 
-        printf("%d %d %s %d\n",
-               h.x,
-               h.y,
-               h.nama,
-               h.skor);
-               
+    while(fscanf(fileHadiah,"%d %d %s %d",
+          &h[jumlahHadiah].x,
+          &h[jumlahHadiah].y,
+          h[jumlahHadiah].nama,
+          &h[jumlahHadiah].skor)==4){
+            jumlahHadiah++;      
+    }
+    fclose(fileHadiah);
+
+    printf("-----------------------------------\n");
+    printf("|x      |y      |nama     |skor   |\n");
+    printf("-----------------------------------\n");
+
+    if(jumlahHadiah == 0){
+        printf("|       |       |         |       |\n");
+        printf("-----------------------------------\n");
     }
 
-    fclose(fileHadiah);
+    for(int i=0; i<jumlahHadiah; i++){
+        printf("|%-4d   |%-4d   |%-5s    |%-4d   |\n",
+               h[i].x,
+               h[i].y,
+               h[i].nama,
+               h[i].skor);
+        printf("-----------------------------------\n");
+    }
+
+    do {
+        printf("\ningin mengisi? (Y/T): ");
+        scanf(" %c", &mauIsi);
+
+        switch(mauIsi){
+            case 'y':
+            case 'Y':
+            tambahHadiah();
+            break;
+            case 't':
+            case 'T':
+            return;
+            break;
+            default:
+            printf("Input tidak valid!!!\n");
+            break;
+        }
+    } while(mauIsi != 't' && mauIsi != 'T');
 }
 
 void urutkanHadiah(hadiah arr[], int n){
@@ -107,11 +146,6 @@ void urutkanHadiah(hadiah arr[], int n){
         }
     }
 }
-
-typedef struct{
-    int x;
-    int y;
-} gerak;
 
 void tambahGerak(){
     FILE *fileGerak;
@@ -134,20 +168,56 @@ void tambahGerak(){
 
 void tampilGerak(){
     FILE *fileGerak;
-    gerak g;
+    gerak g[75];
+    int jumlahGerak = 0;
+    char mauTambah;
 
     fileGerak = fopen("tgerak.txt","r");
 
-    while(fscanf(fileGerak,"%d %d",
-                 &g.x,
-                 &g.y)==2){
+    printf("\nGerakan O saat ini:\n");
 
-        printf("%d %d\n",
-               g.x,
-               g.y);
+    while(fscanf(fileGerak,"%d %d",
+                 &g[jumlahGerak].x,
+                 &g[jumlahGerak].y)==2){
+                    jumlahGerak++;
+    }
+    fclose(fileGerak);
+
+    printf("---------------------\n");
+    printf("|posisi ke- |x  |y  |\n");
+    printf("---------------------\n");
+
+    if(jumlahGerak == 0){
+        printf("|           |   |   |\n");
+        printf("---------------------\n");
     }
 
-    fclose(fileGerak);
+    for(int i=0; i<jumlahGerak; i++){
+        printf("|%-6d     |%-2d |%-2d |\n", 
+               i+1,
+               g[i].x,
+               g[i].y);
+        printf("---------------------\n");
+    }
+
+    do{
+        printf("\ningin menambah? (Y/T): ");
+        scanf(" %c", &mauTambah);
+
+        switch(mauTambah){
+            case 'y':
+            case 'Y':
+            tambahGerak();
+            break;
+            case 't':
+            case 'T':
+            return;
+            break;
+            default:
+            printf("Input tidak valid!!!\n");
+            break;
+        }
+    } while(mauTambah != 't' && mauTambah != 'T');
 }
 
 int main(){
