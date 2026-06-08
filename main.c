@@ -111,12 +111,59 @@ void urutkanHadiah(hadiah arr[], int n){
     }
 }
 
+typedef struct{
+    int x;
+    int y;
+} gerak;
+
+void tambahGerak(){
+    FILE *fileGerak;
+    gerak g;
+
+    fileGerak = fopen("tgerak.txt","a");
+
+    printf("\nx : ");
+    scanf("%d",&g.x);
+
+    printf("y : ");
+    scanf("%d",&g.y);
+
+    fprintf(fileGerak,"%d %d\n",
+            g.x,
+            g.y);
+
+    fclose(fileGerak);
+}
+
+void tampilGerak(){
+    FILE *fileGerak;
+    gerak g;
+
+    fileGerak = fopen("tgerak.txt","r");
+
+    while(fscanf(fileGerak,"%d %d",
+                 &g.x,
+                 &g.y)==2){
+
+        printf("%d %d\n",
+               g.x,
+               g.y);
+    }
+
+    fclose(fileGerak);
+}
 
 int main(){
     tambahHadiah();
 
     printf("\nIsi File:\n");
     tampilHadiah();
+
+    tambahGerak();
+
+    printf("\nIsi File Gerak:\n");
+    tampilGerak();
+
 
     return 0;
 }
