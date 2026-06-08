@@ -97,6 +97,21 @@ void tampilHadiah(){
     fclose(fileHadiah);
 }
 
+void urutkanHadiah(hadiah arr[], int n){
+    hadiah temp;
+    for(int i=0; i<n-1; i++){
+        for(int j=0; j<n-i-1; j++){
+            if(arr[j].y > arr[j+1].y || (arr[j+1].y == arr[j].y && arr[j].x > arr[j+1].x)){
+                hadiah temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+
+        }
+    }
+}
+
+
 int main(){
     tambahHadiah();
 
