@@ -49,6 +49,20 @@ void menu(){
     printf("Masukkan Menu: ");
 }
 
+void urutkanHadiah(hadiah arr[], int n){
+    hadiah temp;
+    for(int i=0; i<n-1; i++){
+        for(int j=0; j<n-i-1; j++){
+            if(arr[j].y > arr[j+1].y || (arr[j+1].y == arr[j].y && arr[j].x > arr[j+1].x)){
+                hadiah temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+
+        }
+    }
+}
+
 void tambahHadiah(){
     FILE *fileHadiah;
     hadiah h;
@@ -133,19 +147,7 @@ void tampilHadiah(){
     } while(mauIsi != 't' && mauIsi != 'T');
 }
 
-void urutkanHadiah(hadiah arr[], int n){
-    hadiah temp;
-    for(int i=0; i<n-1; i++){
-        for(int j=0; j<n-i-1; j++){
-            if(arr[j].y > arr[j+1].y || (arr[j+1].y == arr[j].y && arr[j].x > arr[j+1].x)){
-                hadiah temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-            }
 
-        }
-    }
-}
 
 void tambahGerak(){
     FILE *fileGerak;
