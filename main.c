@@ -232,6 +232,20 @@ void simulasi(){
     scanf("%d", &panjang);
     printf("lebar: ");
     scanf("%d", &lebar);
+
+    printf("\n");
+
+    for(int i=1; i<=panjang; i++){
+        printf("|");
+        for(int j=1; j<=lebar; j++){
+            if(i==1||i==panjang){
+                printf("-");
+            } else{
+                printf(" ");
+            }
+        }
+        printf("|\n");
+    }
 }
 
 int main(){
