@@ -222,6 +222,18 @@ void tampilGerak(){
     } while(mauTambah != 't' && mauTambah != 'T');
 }
 
+void simulasi(){
+    int panjang;
+    int lebar;
+
+    printf("\nInput ukuran papan tampilan:\n");
+    printf("-----------------------------\n");
+    printf("panjang: ");
+    scanf("%d", &panjang);
+    printf("lebar: ");
+    scanf("%d", &lebar);
+}
+
 int main(){
     int pilihMenu;
 
@@ -237,7 +249,7 @@ int main(){
             tampilGerak();
             break;
             case 3:
-            // Simulasi Lite-O
+            simulasi();
             break;
             case 4:
             exit(0);
