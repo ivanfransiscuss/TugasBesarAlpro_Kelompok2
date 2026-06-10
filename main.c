@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define RED "\033[31m"
-#define YELLOW "\033[33m"
-#define RESET "\033[m"
-
 typedef struct{
     int x;
     int y;
@@ -18,34 +14,24 @@ typedef struct{
 } gerak;
 
 void title(){
-    printf(RED "\n-------------------------------------------------------------------\n" RESET);
-    printf(RED "|                                                                 |\n" RESET);
-    printf(RED "|" RESET); printf(YELLOW "  ###          ###  ###########  ###########        ###########  " RESET); printf(RED "|\n" RESET); 
-    printf(RED "|" RESET); printf(YELLOW "  ###          ###  ###########  ###########        ###########  " RESET); printf(RED "|\n" RESET);
-    printf(RED "|" RESET); printf(YELLOW "  ###          ###      ###      ###                ###     ###  " RESET); printf(RED "|\n" RESET);
-    printf(RED "|" RESET); printf(YELLOW "  ###          ###      ###      ###########  ####  ###     ###  " RESET); printf(RED "|\n" RESET);
-    printf(RED "|" RESET); printf(YELLOW "  ###          ###      ###      ###########  ####  ###     ###  " RESET); printf(RED "|\n" RESET);
-    printf(RED "|" RESET); printf(YELLOW "  ###          ###      ###      ###                ###     ###  " RESET); printf(RED "|\n" RESET);
-    printf(RED "|" RESET); printf(YELLOW "  ###########  ###      ###      ###########        ###########  " RESET); printf(RED "|\n" RESET);
-    printf(RED "|" RESET); printf(YELLOW "  ###########  ###      ###      ###########        ###########  " RESET); printf(RED "|\n" RESET);
-    printf(RED "|                                                                 |\n" RESET);
-    printf(RED "-------------------------------------------------------------------\n" RESET);
+
+    printf ("     ###          ###  ###########  ###########        ###########\n" ); 
+    printf ("     ###          ###  ###########  ###########        ###########\n" );
+    printf ("     ###          ###      ###      ###                ###     ###\n" );
+    printf ("     ###          ###      ###      ###########  ####  ###     ###\n" );
+    printf ("     ###          ###      ###      ###########  ####  ###     ###\n" );
+    printf ("     ###          ###      ###      ###                ###     ###\n" );
+    printf ("     ###########  ###      ###      ###########        ###########\n" );
+    printf ("     ###########  ###      ###      ###########        ###########\n" );
+   
 }
 
 void menu(){
     printf("Menu:\n");
-    printf(RED "----------------------\n" RESET);
-    printf(RED "|" RESET); printf(" 1. Tambah Hadiah   "); printf(RED "|\n" RESET);
-    printf(RED "----------------------\n" RESET);
-    printf(RED "----------------------\n" RESET);
-    printf(RED "|" RESET); printf(" 2. Tambah Gerak O  "); printf(RED "|\n" RESET);
-    printf(RED "----------------------\n" RESET);
-    printf(RED "----------------------\n" RESET);
-    printf(RED "|" RESET); printf(" 3. Simulasi Lite-O "); printf(RED "|\n" RESET);
-    printf(RED "----------------------\n" RESET);
-    printf(RED "----------------------\n" RESET);
-    printf(RED "|" RESET); printf(" 4. Keluar          "); printf(RED "|\n" RESET);
-    printf(RED "----------------------\n" RESET); 
+    printf("1. Tambah Hadiah\n"); 
+    printf("2. Tambah Gerak O\n"); 
+    printf("3. Simulasi Lite-O\n"); 
+    printf("4. Keluar\n"); 
     printf("Masukkan Menu: ");
 }
 
@@ -146,8 +132,6 @@ void tampilHadiah(){
         }
     } while(mauIsi != 't' && mauIsi != 'T');
 }
-
-
 
 void tambahGerak(){
     FILE *fileGerak;
