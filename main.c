@@ -251,7 +251,7 @@ void simulasi(){
             if(i==1||i==panjang){
                 printf("-");
             } else{
-                printf(" ");
+                tampilHadiahDiPosisi(j,i);
             }
         }
         printf("|\n");
