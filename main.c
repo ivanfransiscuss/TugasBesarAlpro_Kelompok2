@@ -228,9 +228,9 @@ void simulasi(){
 
     printf("\nInput ukuran papan tampilan:\n");
     printf("-----------------------------\n");
-    printf("panjang: ");
+    printf("Panjang : ");
     scanf("%d", &panjang);
-    printf("lebar: ");
+    printf("Lebar : ");
     scanf("%d", &lebar);
 
     printf("\n");
