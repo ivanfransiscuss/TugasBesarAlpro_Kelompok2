@@ -235,6 +235,7 @@ void tampilHadiahDiPosisi(int x, int y){
 void simulasi(){
     int panjang;
     int lebar;
+    int skorTotal = 0; // UNTUK YG DAPET BAGIAN UPDATE SKOR, TOLONG PAKE VARIABEL INI YA NNTI
     gerak awalO = {-1, -1}; // posisii awal
     FILE *fg;
 
@@ -269,7 +270,9 @@ void simulasi(){
             }
         }
         printf("|\n");
-    }
+    } 
+    printf("\n");
+    printf("\nSkor O: %d\n", skorTotal);
 }
 
 int main(){
