@@ -235,6 +235,16 @@ void tampilHadiahDiPosisi(int x, int y){
 void simulasi(){
     int panjang;
     int lebar;
+    gerak awalO = {-1, -1}; // posisii awal
+    FILE *fg;
+
+    hadiah hList[100]; // menyiapkan tampungan maks untk 100 hadiah
+    int jumlahHadiah = 0;
+    fg = fopen("tgerak.txt", "r");
+    if(fg != NULL){
+        fscanf(fg, "%d %d", &awalO.x, &awalO.y);
+        fclose(fg);
+    }
 
     printf("\nInput ukuran papan tampilan:\n");
     printf("-----------------------------\n");
@@ -251,7 +261,11 @@ void simulasi(){
             if(i==1||i==panjang){
                 printf("-");
             } else{
-                tampilHadiahDiPosisi(j,i);
+                if((j - 1) == awalO.x && (i - 2) == awalO.y){
+                    printf("O");
+                } else {
+                    tampilHadiahDiPosisi(j,i);
+                }
             }
         }
         printf("|\n");
