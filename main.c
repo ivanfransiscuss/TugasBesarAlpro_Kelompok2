@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct{
     int x;
@@ -241,10 +242,23 @@ void simulasi(){
 
     hadiah hList[100]; // menyiapkan tampungan maks untk 100 hadiah
     int jumlahHadiah = 0;
+    
     fg = fopen("tgerak.txt", "r");
     if(fg != NULL){
         fscanf(fg, "%d %d", &awalO.x, &awalO.y);
         fclose(fg);
+    }
+
+    FILE *fh = fopen("thadiah.txt", "r");
+    if(fh != NULL){
+        while(fscanf(fh, "%d %d %s %d",
+                     &hList[jumlahHadiah].x,
+                     &hList[jumlahHadiah].y,
+                     hList[jumlahHadiah].nama,
+                     &hList[jumlahHadiah].skor) == 4){
+                        jumlahHadiah++;
+        }
+        fclose(fh);
     }
 
     printf("\nInput ukuran papan tampilan:\n");
@@ -265,7 +279,23 @@ void simulasi(){
                 if((j - 1) == awalO.x && (i - 2) == awalO.y){
                     printf("O");
                 } else {
-                    tampilHadiahDiPosisi(j,i);
+                    int adaHadiah = 0;
+                    for(int k=0; k<jumlahHadiah; k++){
+                        if((i - 2) == hList[k].y){
+                            char teks[30];
+                            sprintf(teks, "%s%d", hList[k].nama, hList[k].skor);
+                            int len = strlen(teks);
+                            if((j-1) >= hList[k].x && (j-1) < hList[k].x + len){
+                                printf("%c", teks[j-1 - hList[k].x]);
+                                adaHadiah = 1;
+                                break;
+                            }
+                        }
+                    }
+                    //kalau ga ada hadiah, tampilkan spasi
+                    if(adaHadiah == 0){
+                    printf(" ");
+                    }
                 }
             }
         }
