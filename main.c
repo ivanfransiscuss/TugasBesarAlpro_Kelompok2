@@ -229,7 +229,7 @@ void tampilHadiahDiPosisi(int x, int y){
 
     fclose(fileHadiah);
 
-    printf(" ");
+    printf("%s %d", h.nama, h.skor);
 }
 
 void simulasi(){
