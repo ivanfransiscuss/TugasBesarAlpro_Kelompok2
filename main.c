@@ -221,7 +221,7 @@ void tampilHadiahDiPosisi(int x, int y){
                  &h.skor)==4){
 
         if(h.x == x && h.y == y){
-            printf("%s%d", h.nama, h.skor);
+            printf("H");
             fclose(fileHadiah);
             return;
         }
@@ -229,7 +229,7 @@ void tampilHadiahDiPosisi(int x, int y){
 
     fclose(fileHadiah);
 
-    printf("%s%d", h.nama, h.skor);
+    printf("H");
 }
 
 void simulasi(){
