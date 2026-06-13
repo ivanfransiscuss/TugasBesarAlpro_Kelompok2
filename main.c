@@ -221,7 +221,7 @@ void tampilHadiahDiPosisi(int x, int y){
                  &h.skor)==4){
 
         if(h.x == x && h.y == y){
-            printf("H");
+            printf("%s%d", h.nama, h.skor);
             fclose(fileHadiah);
             return;
         }
