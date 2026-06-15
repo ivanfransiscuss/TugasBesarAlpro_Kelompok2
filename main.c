@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 typedef struct{
     int x;
@@ -252,6 +253,17 @@ void bacaGerakO(gerak g[], int *jumlahGerak){
     fclose(fileGerak);
 }
 
+void wait(float x) {
+    time_t start;
+    time_t current;
+
+    time(&start);
+
+    do{
+        time(&current);
+    } while(difftime(current, start) < x);
+}
+
 void simulasi(){
     int panjang;
     int lebar;
@@ -324,8 +336,10 @@ void simulasi(){
     } 
 printf("\n");
 printf("\nSkor O: %d\n", skorTotal);
+wait(1); 
 }
 }
+
 int main(){
     int pilihMenu;
 
