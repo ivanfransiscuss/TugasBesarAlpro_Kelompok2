@@ -243,6 +243,11 @@ void bacaGerakO(gerak g[], int *jumlahGerak){
     if(fileGerak == NULL){
         return;
     }
+     while(fscanf(fileGerak,"%d %d",
+                 &g[*jumlahGerak].x,
+                 &g[*jumlahGerak].y)==2){
+        (*jumlahGerak)++;
+    }
 
     fclose(fileGerak);
 }
