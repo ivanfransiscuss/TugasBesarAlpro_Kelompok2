@@ -256,20 +256,13 @@ void simulasi(){
     int panjang;
     int lebar;
     int skorTotal = 0; // UNTUK YG DAPET BAGIAN UPDATE SKOR, TOLONG PAKE VARIABEL INI YA NNTI
-    gerak awalO = {-1, -1}; // posisii awal
     gerak daftarGerak[100]; // Menyimpan seluruh data gerakan O dari file tgerak
     int jumlahGerak;
     bacaGerakO(daftarGerak, &jumlahGerak); // Memanggil fungsi pembacaan data gerak
-    FILE *fg;
 
     hadiah hList[100]; // menyiapkan tampungan maks untk 100 hadiah
     int jumlahHadiah = 0;
     
-    fg = fopen("tgerak.txt", "r");
-    if(fg != NULL){
-        fscanf(fg, "%d %d", &awalO.x, &awalO.y);
-        fclose(fg);
-    }
 
     FILE *fh = fopen("thadiah.txt", "r");
     if(fh != NULL){
@@ -291,6 +284,12 @@ void simulasi(){
     scanf("%d", &lebar);
 
     printf("\n");
+    for(int langkah = 0; langkah < jumlahGerak; langkah++){
+
+    int posisiX = daftarGerak[langkah].x;
+    int posisiY = daftarGerak[langkah].y;
+
+    printf("\nLangkah %d\n", langkah+1);
 
     for(int i=1; i<=panjang; i++){
         printf("|");
@@ -298,7 +297,7 @@ void simulasi(){
             if(i==1||i==panjang){
                 printf("-");
             } else{
-                if((j - 1) == awalO.x && (i - 2) == awalO.y){
+                if((j - 1) == posisiX && (i - 2) == posisiY){
                     printf("O");
                 } else {
                     int adaHadiah = 0;
@@ -323,10 +322,10 @@ void simulasi(){
         }
         printf("|\n");
     } 
-    printf("\n");
-    printf("\nSkor O: %d\n", skorTotal);
+printf("\n");
+printf("\nSkor O: %d\n", skorTotal);
 }
-
+}
 int main(){
     int pilihMenu;
 
