@@ -3,6 +3,21 @@
 #include <string.h>
 #include <time.h>
 
+#define RED31 "\033[31m"
+#define GREEN32 "\033[32m" 
+#define YELLOW33 "\033[33m"
+#define BLUE34 "\033[34m"
+#define PURPLE35 "\033[35m"
+#define BLUE36 "\033[36m"
+#define WHITE37 "\033[37m"
+#define PINK91 "\033[91m"
+#define GREEN92 "\033[92m"
+#define CREAM93 "\033[93m"
+#define BLUE94 "\033[94m"
+#define PURPLE95 "\033[95m"
+#define BLUE96 "\033[96m"
+#define RESET "\033[m"
+
 typedef struct{
     int x;
     int y;
@@ -268,6 +283,8 @@ void simulasi(){
     int panjang;
     int lebar;
     int skorTotal = 0; // UNTUK YG DAPET BAGIAN UPDATE SKOR, TOLONG PAKE VARIABEL INI YA NNTI
+    int jumlahWarna = 12;
+    const char *warnaHadiah[] = {RED31, GREEN32, BLUE34, PURPLE35, BLUE36, WHITE37, PINK91, GREEN92, CREAM93, BLUE94, PURPLE95, BLUE96};
     gerak daftarGerak[100]; // Menyimpan seluruh data gerakan O dari file tgerak
     int jumlahGerak;
     bacaGerakO(daftarGerak, &jumlahGerak); // Memanggil fungsi pembacaan data gerak
@@ -319,7 +336,8 @@ void simulasi(){
                             sprintf(teks, "%s%d", hList[k].nama, hList[k].skor);
                             int len = strlen(teks);
                             if((j-1) >= hList[k].x && (j-1) < hList[k].x + len){
-                                printf("%c", teks[j-1 - hList[k].x]);
+                                int warnaIndex = k % jumlahWarna;
+                                printf("%s%c%s", warnaHadiah[warnaIndex], teks[j-1 - hList[k].x], RESET);
                                 adaHadiah = 1;
                                 break;
                             }
