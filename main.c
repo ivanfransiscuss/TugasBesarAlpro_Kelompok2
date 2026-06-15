@@ -257,6 +257,9 @@ void simulasi(){
     int lebar;
     int skorTotal = 0; // UNTUK YG DAPET BAGIAN UPDATE SKOR, TOLONG PAKE VARIABEL INI YA NNTI
     gerak awalO = {-1, -1}; // posisii awal
+    gerak daftarGerak[100]; // Menyimpan seluruh data gerakan O dari file tgerak
+    int jumlahGerak;
+    bacaGerakO(daftarGerak, &jumlahGerak); // Memanggil fungsi pembacaan data gerak
     FILE *fg;
 
     hadiah hList[100]; // menyiapkan tampungan maks untk 100 hadiah
