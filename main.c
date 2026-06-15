@@ -233,6 +233,20 @@ void tampilHadiahDiPosisi(int x, int y){
     printf(" ");
 }
 
+void bacaGerakO(gerak g[], int *jumlahGerak){
+    FILE *fileGerak;
+
+    *jumlahGerak = 0;
+
+    fileGerak = fopen("tgerak.txt","r");
+
+    if(fileGerak == NULL){
+        return;
+    }
+
+    fclose(fileGerak);
+}
+
 void simulasi(){
     int panjang;
     int lebar;
