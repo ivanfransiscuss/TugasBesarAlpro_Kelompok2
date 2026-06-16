@@ -354,7 +354,7 @@ printf("\n");
 printf("\nSkor O: %d\n", skorTotal);
 wait(1); 
 }
-}
+
 
 int main(){
     int pilihMenu;
