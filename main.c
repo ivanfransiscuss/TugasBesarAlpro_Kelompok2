@@ -313,7 +313,7 @@ void simulasi(){
     scanf("%d", &lebar);
 
     printf("\n");
-    int langkah = 0;
+    for(int langkah = 0; langkah < jumlahGerak; langkah++){
     int posisiX = daftarGerak[langkah].x;
     int posisiY = daftarGerak[langkah].y;
 
@@ -323,7 +323,7 @@ void simulasi(){
             statusHadiah[k] = 1; // menandai hadiah sudah dimakan
         }
     }
-
+    
     for(int i=1; i<=panjang; i++){
         printf("|");
         for(int j=1; j<=lebar; j++){
@@ -359,6 +359,7 @@ void simulasi(){
 printf("\n");
 printf("\nSkor O: %d\n", skorTotal);
 wait(1); 
+}
 }
 
 
