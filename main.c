@@ -359,6 +359,7 @@ void simulasi(){
 printf("\n");
 printf("\nSkor O: %d\n", skorTotal);
 wait(1); 
+system("cls");
 }
 }
 
