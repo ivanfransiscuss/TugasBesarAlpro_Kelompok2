@@ -363,7 +363,7 @@ void simulasi(){
     } 
 printf("\n");
 printf("\nSkor O: %d\n", skorTotal);
-wait(0.5); 
+wait(0.1); 
 }
 }
 
