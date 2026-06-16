@@ -291,7 +291,7 @@ void simulasi(){
 
     hadiah hList[100]; // menyiapkan tampungan maks untk 100 hadiah
     int jumlahHadiah = 0;
-    
+    int statusHadiah[100] = {0}; // tambahkan array status (0=utuh, 1=dimakan)
 
     FILE *fh = fopen("thadiah.txt", "r");
     if(fh != NULL){
@@ -331,7 +331,7 @@ void simulasi(){
                 } else {
                     int adaHadiah = 0;
                     for(int k=0; k<jumlahHadiah; k++){
-                        if((i - 2) == hList[k].y){
+                        if((i - 2) == hList[k].y && statusHadiah[k] == 0){ // cek posisi dan pastikan hadiahnya belum dimakan   
                             char teks[30];
                             sprintf(teks, "%s%d", hList[k].nama, hList[k].skor);
                             int len = strlen(teks);
