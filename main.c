@@ -313,8 +313,7 @@ void simulasi(){
     scanf("%d", &lebar);
 
     printf("\n");
-    for(int langkah = 0; langkah < jumlahGerak; langkah++){
-
+    int langkah = 0;
     int posisiX = daftarGerak[langkah].x;
     int posisiY = daftarGerak[langkah].y;
 
