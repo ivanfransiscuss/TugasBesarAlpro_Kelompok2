@@ -317,6 +317,12 @@ void simulasi(){
     int posisiX = daftarGerak[langkah].x;
     int posisiY = daftarGerak[langkah].y;
 
+    for(int k = 0; k < jumlahHadiah; k++){
+        if(posisiX == hList[k].x && posisiY == hList[k].y && statusHadiah[k] == 0){
+            skorTotal += hList[k].skor;
+            statusHadiah[k] = 1; // menandai hadiah sudah dimakan
+        }
+    }
 
     for(int i=1; i<=panjang; i++){
         printf("|");
