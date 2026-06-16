@@ -314,6 +314,11 @@ void simulasi(){
 
     printf("\n");
     for(int langkah = 0; langkah < jumlahGerak; langkah++){
+
+        if (langkah > 0){
+            system("cls");
+        }
+        
     int posisiX = daftarGerak[langkah].x;
     int posisiY = daftarGerak[langkah].y;
 
@@ -359,7 +364,6 @@ void simulasi(){
 printf("\n");
 printf("\nSkor O: %d\n", skorTotal);
 wait(1); 
-system("cls");
 }
 }
 
