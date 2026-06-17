@@ -54,14 +54,14 @@ void menu(){
     printf("Masukkan Menu: ");
 }
 
-void urutkanHadiah(hadiah arr[], int n){
-    hadiah temp;
-    for(int i=0; i<n-1; i++){
-        for(int j=0; j<n-i-1; j++){
-            if(arr[j].y > arr[j+1].y || (arr[j+1].y == arr[j].y && arr[j].x > arr[j+1].x)){
-                hadiah temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
+void urutkanHadiah(hadiah arr[], int n){ // Mengurutkan hadiah berdasarkan posisi (y, lalu x)
+    hadiah temp; // Variabel sementara untuk pertukaran
+    for(int i=0; i<n-1; i++){ // Loop untuk setiap elemen dalam array
+        for(int j=0; j<n-i-1; j++){ // Loop untuk membandingkan elemen yang berdekatan
+            if(arr[j].y > arr[j+1].y || (arr[j+1].y == arr[j].y && arr[j].x > arr[j+1].x)){ // Kondisi untuk mengurutkan berdasarkan y, lalu x jika y sama
+                hadiah temp = arr[j]; // Menyimpan elemen saat ini dalam variabel sementara
+                arr[j] = arr[j+1]; // Menukar elemen saat ini dengan elemen berikutnya
+                arr[j+1] = temp;  // Menempatkan elemen sementara ke posisi berikutnya
             }
 
         }
@@ -282,16 +282,16 @@ void wait(float x) {
 void simulasi(){
     int panjang;
     int lebar;
-    int skorTotal = 0; // UNTUK YG DAPET BAGIAN UPDATE SKOR, TOLONG PAKE VARIABEL INI YA NNTI
+    int skorTotal = 0; // UNTUK YANG BAGIAN UPDATE SKOR, GUNAKAN VARIABEL INI UNTUK MENAMPUNG TOTAL SKOR
     int jumlahWarna = 12;
     const char *warnaHadiah[] = {RED31, GREEN32, BLUE34, PURPLE35, BLUE36, WHITE37, PINK91, GREEN92, CREAM93, BLUE94, PURPLE95, BLUE96};
     gerak daftarGerak[100]; // Menyimpan seluruh data gerakan O dari file tgerak
     int jumlahGerak;
     bacaGerakO(daftarGerak, &jumlahGerak); // Memanggil fungsi pembacaan data gerak
 
-    hadiah hList[100]; // menyiapkan tampungan maks untk 100 hadiah
+    hadiah hList[100]; // Menyiapkan tampungan maks untk 100 hadiah
     int jumlahHadiah = 0;
-    int statusHadiah[100] = {0}; // tambahkan array status (0=utuh, 1=dimakan)
+    int statusHadiah[100] = {0}; // Menambahkan array status (0=utuh, 1=dimakan)
 
     FILE *fh = fopen("thadiah.txt", "r");
     if(fh != NULL){
@@ -304,6 +304,7 @@ void simulasi(){
         }
         fclose(fh);
     }
+    urutkanHadiah(hList, jumlahHadiah); // Mengurutkan hadiah berdasarkan posisi untuk memudahkan pengecekan saat simulasi
 
     printf("\nInput ukuran papan tampilan:\n");
     printf("-----------------------------\n");
@@ -325,7 +326,7 @@ void simulasi(){
     for(int k = 0; k < jumlahHadiah; k++){
         if(posisiX == hList[k].x && posisiY == hList[k].y && statusHadiah[k] == 0){
             skorTotal += hList[k].skor;
-            statusHadiah[k] = 1; // menandai hadiah sudah dimakan
+            statusHadiah[k] = 1; // Menandai hadiah sudah dimakan
         }
     }
     
@@ -340,7 +341,7 @@ void simulasi(){
                 } else {
                     int adaHadiah = 0;
                     for(int k=0; k<jumlahHadiah; k++){
-                        if((i - 2) == hList[k].y && statusHadiah[k] == 0){ // cek posisi dan pastikan hadiahnya belum dimakan   
+                        if((i - 2) == hList[k].y && statusHadiah[k] == 0){ // Mengecek posisi dan memastikan hadiahnya belum dimakan   
                             char teks[30];
                             sprintf(teks, "%s%d", hList[k].nama, hList[k].skor);
                             int len = strlen(teks);
@@ -352,7 +353,7 @@ void simulasi(){
                             }
                         }
                     }
-                    //kalau ga ada hadiah, tampilkan spasi
+                    //Jika tidak ada hadiah, menampilkan spasi
                     if(adaHadiah == 0){
                     printf(" ");
                     }
