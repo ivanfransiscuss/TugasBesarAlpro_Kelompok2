@@ -113,7 +113,8 @@ void tampilHadiah(){
             jumlahHadiah++;      
     }
     fclose(fileHadiah);
-
+    urutkanHadiah(h, jumlahHadiah); // Mengurutkan hadiah berdasarkan posisi (y, lalu x) sebelum ditampilkan
+    
     printf("-----------------------------------\n");
     printf("|x      |y      |nama     |skor   |\n");
     printf("-----------------------------------\n");
