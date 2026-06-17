@@ -283,7 +283,7 @@ void simulasi(){
     int lebar;
     int skorTotal = 0; // UNTUK YANG BAGIAN UPDATE SKOR, GUNAKAN VARIABEL INI UNTUK MENAMPUNG TOTAL SKOR
     int jumlahWarna = 12;
-    const char *warnaHadiah[] = {RED31, GREEN32, BLUE34, PURPLE35, BLUE36, WHITE37, PINK91, GREEN92, CREAM93, BLUE94, PURPLE95, BLUE96};
+    const char *warnaHadiah[] = {RED31, GREEN32, YELLOW33, BLUE34, PURPLE35, BLUE36, WHITE37, PINK91, GREEN92, CREAM93, BLUE94, PURPLE95, BLUE96};
     gerak daftarGerak[100]; // Menyimpan seluruh data gerakan O dari file tgerak
     int jumlahGerak;
     bacaGerakO(daftarGerak, &jumlahGerak); // Memanggil fungsi pembacaan data gerak
