@@ -148,7 +148,7 @@ void tampilHadiah(){
             printf("Input tidak valid!!!\n");
             break;
         }
-    } while(mauIsi != 't' && mauIsi != 'T');
+    } while(mauIsi != 't' || mauIsi != 'T');
 }
 
 void tambahGerak(){
@@ -221,7 +221,7 @@ void tampilGerak(){
             printf("Input tidak valid!!!\n");
             break;
         }
-    } while(mauTambah != 't' && mauTambah != 'T');
+    } while(mauTambah != 't' || mauTambah != 'T');
 }
 
 void tampilHadiahDiPosisi(int x, int y){
@@ -329,10 +329,10 @@ void simulasi(){
         }
     }
     
-    for(int i=1; i<=panjang; i++){
+    for(int i=1; i<=panjang+2; i++){
         printf("|");
         for(int j=1; j<=lebar; j++){
-            if(i==1||i==panjang){
+            if(i==1||i==panjang+2){
                 printf("-");
             } else{
                 if((j - 1) == posisiX && (i - 2) == posisiY){
