@@ -360,8 +360,7 @@ void simulasi(){
             }
         }
         printf("|\n");
-    } 
-printf("\n");
+    }
 printf("\nSkor O: %d\n", skorTotal);
 wait(0.1); 
 }
