@@ -372,9 +372,8 @@ wait(0.1);
 
 int main(){
     int pilihMenu;
-
+    title();
     do{
-        title();
         menu();
         scanf("%d", &pilihMenu);
         switch(pilihMenu){
