@@ -329,10 +329,10 @@ void simulasi(){
         }
     }
     
-    for(int i=1; i<=panjang+2; i++){
+    for(int i=1; i<=panjang+3; i++){
         printf("|");
         for(int j=1; j<=lebar; j++){
-            if(i==1||i==panjang+2){
+            if(i==1||i==panjang+3){
                 printf("-");
             } else{
                 if((j - 1) == posisiX && (i - 2) == posisiY){
