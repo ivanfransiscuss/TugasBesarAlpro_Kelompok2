@@ -154,20 +154,22 @@ void tampilHadiah(){
 void tambahGerak(){
     FILE *fileGerak;
     gerak g;
-
+    // membuka file 
     fileGerak = fopen("tgerak.txt","a");
 
+    //memasukan koordinat tujuan o
     printf("\nx : ");
     scanf("%d",&g.x);
 
     printf("y : ");
     scanf("%d",&g.y);
 
+    //menyimpan koordinat ke file
     fprintf(fileGerak,"%d %d\n",
             g.x,
             g.y);
 
-    fclose(fileGerak);
+    fclose(fileGerak); //menutup file
 }
 
 void tampilGerak(){
@@ -228,20 +230,25 @@ void tampilGerak(){
 void bacaGerakO(gerak g[], int *jumlahGerak){
     FILE *fileGerak;
 
+    //mengosongkan jumlah data sebelum mulai membaca file
     *jumlahGerak = 0;
 
+    //membuka file koordinat gerak o
     fileGerak = fopen("tgerak.txt","r");
 
+    //menghentikan fungsi jika file belum ada
     if(fileGerak == NULL){
         return;
     }
+    //membaca setiap koordinat x dan y dari file
+    // lalu menyimpannya ke dalam array g
      while(fscanf(fileGerak,"%d %d",
                  &g[*jumlahGerak].x,
                  &g[*jumlahGerak].y)==2){
         (*jumlahGerak)++;
     }
 
-    fclose(fileGerak);
+    fclose(fileGerak); //menutup file
 }
 
 void wait(float x) {
