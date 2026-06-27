@@ -224,29 +224,6 @@ void tampilGerak(){
     } while(mauTambah != 't' || mauTambah != 'T');
 }
 
-void tampilHadiahDiPosisi(int x, int y){
-    FILE *fileHadiah;
-    hadiah h;
-
-    fileHadiah = fopen("thadiah.txt","r");
-
-    while(fscanf(fileHadiah,"%d %d %s %d",
-                 &h.x,
-                 &h.y,
-                 h.nama,
-                 &h.skor)==4){
-
-        if(h.x == x && h.y == y){
-            printf("H");
-            fclose(fileHadiah);
-            return;
-        }
-    }
-
-    fclose(fileHadiah);
-
-    printf(" ");
-}
 
 void bacaGerakO(gerak g[], int *jumlahGerak){
     FILE *fileGerak;
