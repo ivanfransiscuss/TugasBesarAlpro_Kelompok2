@@ -96,8 +96,8 @@ void tambahHadiah(){
 
 void tampilHadiah(){
     FILE *fileHadiah;
-    hadiah h[50];
-    int jumlahHadiah = 0;
+    hadiah h[50]; // Array untuk menampung maksimal 50 data hadiah dari file
+    int jumlahHadiah = 0; // Menghitung jumlah hadiah yang dibaca dari file
     char mauIsi; // variabel untuk menyimpan pilihan pengguna (Y/T)
 
     fileHadiah = fopen("thadiah.txt","r");    // buka file dalam mode baca agar data hadiah dapat ditampiljan
@@ -152,7 +152,7 @@ void tampilHadiah(){
             printf("Input tidak valid!!!\n");
             break;
         }
-    } while(mauIsi != 't' || mauIsi != 'T');
+    } while(mauIsi != 't' && mauIsi != 'T');
 }
 
 void tambahGerak(){
@@ -178,8 +178,8 @@ void tambahGerak(){
 
 void tampilGerak(){
     FILE *fileGerak;
-    gerak g[75];
-    int jumlahGerak = 0;
+    gerak g[75]; // Array untuk menampung maksimal 75 data gerakan O dari file
+    int jumlahGerak = 0; // Menghitung jumlah gerakan yang dibaca dari file
     char mauTambah;
 
     fileGerak = fopen("tgerak.txt","r");
@@ -189,8 +189,8 @@ void tampilGerak(){
     // Membaca semua data dari file
     while(fscanf(fileGerak,"%d %d",
                  &g[jumlahGerak].x,
-                 &g[jumlahGerak].y)==2){
-                    jumlahGerak++;
+                 &g[jumlahGerak].y)==2){ // membaca setiap baris data gerak dari file selama format yang dibaca lengkap
+                    jumlahGerak++; // menambah jumlah gerak setiap kali satu data berhasil dibaca
     }
     fclose(fileGerak);
 
@@ -230,7 +230,7 @@ void tampilGerak(){
             printf("Input tidak valid!!!\n");
             break;
         }
-    } while(mauTambah != 't' || mauTambah != 'T');
+    } while(mauTambah != 't' && mauTambah != 'T');
 }
 
 
