@@ -68,16 +68,16 @@ void urutkanHadiah(hadiah arr[], int n){ // Mengurutkan hadiah berdasarkan posis
 }
 
 void tambahHadiah(){
-    FILE *fileHadiah;
-    hadiah h;
+    FILE *fileHadiah;    
+    hadiah h;    // variabel sementara buat nyimpen data hadiah
 
-    fileHadiah = fopen("thadiah.txt","a");
+    fileHadiah = fopen("thadiah.txt","a");    // buka file dalam mode apppend 
 
     printf("\nx : ");
-    scanf("%d",&h.x);
+    scanf("%d",&h.x);    // mmenyimpan input koordinat x ke variabel h.x
 
     printf("y : ");
-    scanf("%d",&h.y);
+    scanf("%d",&h.y);     // menyimpan input koordinat y ke variabel h.y
 
     printf("nama : ");
     scanf("%s",h.nama);
@@ -98,9 +98,9 @@ void tampilHadiah(){
     FILE *fileHadiah;
     hadiah h[50];
     int jumlahHadiah = 0;
-    char mauIsi;
+    char mauIsi; // variabel untuk menyimpan pilihan pengguna (Y/T)
 
-    fileHadiah = fopen("thadiah.txt","r");
+    fileHadiah = fopen("thadiah.txt","r");    // buka file dalam mode baca agar data hadiah dapat ditampiljan
 
     printf("\nIsi hadiah saat ini:\n");
 
@@ -109,8 +109,8 @@ void tampilHadiah(){
           &h[jumlahHadiah].x,
           &h[jumlahHadiah].y,
           h[jumlahHadiah].nama,
-          &h[jumlahHadiah].skor)==4){
-            jumlahHadiah++;      
+          &h[jumlahHadiah].skor)==4){    // membaca setiap baris data hadiah dari file selama format yang dibaca lengkap
+            jumlahHadiah++;    // menambah jumlah hadiah setiap kali satu data berhasil dibaca   
     }
     fclose(fileHadiah);
     urutkanHadiah(h, jumlahHadiah); // Mengurutkan hadiah berdasarkan posisi (y, lalu x) sebelum ditampilkan
@@ -120,7 +120,7 @@ void tampilHadiah(){
     printf("|x      |y      |nama     |skor   |\n");
     printf("-----------------------------------\n");
 
-    if(jumlahHadiah == 0){
+    if(jumlahHadiah == 0){        // mengecek apakah file belum memiliki data hadiah
         printf("|       |       |         |       |\n");
         printf("-----------------------------------\n");
     }
@@ -142,7 +142,7 @@ void tampilHadiah(){
         switch(mauIsi){
             case 'y':
             case 'Y':
-            tambahHadiah();
+            tambahHadiah();    // memanggil fungsi tambahHadiah() jika pengguna memilih Ya
             break;
             case 't':
             case 'T':
@@ -259,14 +259,14 @@ void bacaGerakO(gerak g[], int *jumlahGerak){
 }
 
 void wait(float x) {
-    time_t start;
-    time_t current;
+    time_t start;    // menyimpan waktu saat fungsi mulai dijalankan
+    time_t current;    // menyimpan waktu saat ini untuk dibandingkan dgn waktu awal
 
-    time(&start);
+    time(&start);    // mengambil waktu awal saat fungsi dipanggil
 
     do{
-        time(&current);
-    } while(difftime(current, start) < x);
+        time(&current);    // memperbarui waktu saat ini secara terus menerus
+    } while(difftime(current, start) < x);    // mengulang hingga selisih waktu mencapai nilai x detik
 }
 
 void simulasi(){
@@ -308,7 +308,7 @@ void simulasi(){
     for(int langkah = 0; langkah < jumlahGerak; langkah++){
 
         if (langkah > 0){
-            system("cls");
+            system("cls");    // membersihkan layar sebelum menampilkan animasi berikutnya
         }
         
     int posisiX = daftarGerak[langkah].x;
@@ -356,7 +356,7 @@ void simulasi(){
         printf("|\n");
     }
 printf("\nSkor O: %d\n", skorTotal);
-wait(0.1); 
+wait(0.1);     // memberi jeda 0,1 detik sblm O berpindah ke koordinat brktnya
 }
 }
 
