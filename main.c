@@ -3,6 +3,7 @@
 #include <string.h>
 #include <time.h>
 
+// ANSI escape code untuk mewarnai output 
 #define RED31 "\033[31m"
 #define GREEN32 "\033[32m" 
 #define YELLOW33 "\033[33m"
@@ -16,7 +17,7 @@
 #define BLUE94 "\033[94m"
 #define PURPLE95 "\033[95m"
 #define BLUE96 "\033[96m"
-#define RESET "\033[m"
+#define RESET "\033[m" // Mengembalikan warna ke default
 
 typedef struct{
     int x;
@@ -103,6 +104,7 @@ void tampilHadiah(){
 
     printf("\nIsi hadiah saat ini:\n");
 
+    // Membaca semua data dari file
     while(fscanf(fileHadiah,"%d %d %s %d",
           &h[jumlahHadiah].x,
           &h[jumlahHadiah].y,
@@ -113,6 +115,7 @@ void tampilHadiah(){
     fclose(fileHadiah);
     urutkanHadiah(h, jumlahHadiah); // Mengurutkan hadiah berdasarkan posisi (y, lalu x) sebelum ditampilkan
     
+    // Header tabel
     printf("-----------------------------------\n");
     printf("|x      |y      |nama     |skor   |\n");
     printf("-----------------------------------\n");
@@ -122,6 +125,7 @@ void tampilHadiah(){
         printf("-----------------------------------\n");
     }
 
+    // Menampilkan setiap data hadiah dalam tabel
     for(int i=0; i<jumlahHadiah; i++){
         printf("|%-4d   |%-4d   |%-5s    |%-4d   |\n",
                h[i].x,
@@ -182,6 +186,7 @@ void tampilGerak(){
 
     printf("\nGerakan O saat ini:\n");
 
+    // Membaca semua data dari file
     while(fscanf(fileGerak,"%d %d",
                  &g[jumlahGerak].x,
                  &g[jumlahGerak].y)==2){
@@ -189,6 +194,7 @@ void tampilGerak(){
     }
     fclose(fileGerak);
 
+    // Header tabel
     printf("---------------------\n");
     printf("|posisi ke- |x  |y  |\n");
     printf("---------------------\n");
@@ -198,6 +204,7 @@ void tampilGerak(){
         printf("---------------------\n");
     }
 
+    // Menampilkan setiap data gerakan O dalam tabel
     for(int i=0; i<jumlahGerak; i++){
         printf("|%-6d     |%-2d |%-2d |\n", 
                i+1,
@@ -267,6 +274,7 @@ void simulasi(){
     int lebar;
     int skorTotal = 0; // UNTUK YANG BAGIAN UPDATE SKOR, GUNAKAN VARIABEL INI UNTUK MENAMPUNG TOTAL SKOR
     int jumlahWarna = 12;
+    // Array yang berisi kode warna untuk mewarnai hadiah yang tampil di papan
     const char *warnaHadiah[] = {RED31, GREEN32, YELLOW33, BLUE34, PURPLE35, BLUE36, WHITE37, PINK91, GREEN92, CREAM93, BLUE94, PURPLE95, BLUE96};
     gerak daftarGerak[100]; // Menyimpan seluruh data gerakan O dari file tgerak
     int jumlahGerak;
@@ -329,7 +337,9 @@ void simulasi(){
                             sprintf(teks, "%s%d", hList[k].nama, hList[k].skor);
                             int len = strlen(teks);
                             if((j-1) >= hList[k].x && (j-1) < hList[k].x + len){
+                                // Memilih warna berdasarkan indeks
                                 int warnaIndex = k % jumlahWarna;
+                                // Mencetak hadiah dengan warna yang kepilih
                                 printf("%s%c%s", warnaHadiah[warnaIndex], teks[j-1 - hList[k].x], RESET);
                                 adaHadiah = 1;
                                 break;
