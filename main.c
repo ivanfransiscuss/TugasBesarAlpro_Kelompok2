@@ -17,7 +17,7 @@ int main(){
             simulasi();
             break;
             case 4:
-            system("exit"); // Pastikan ini sudah terganti ya!
+            system("exit"); 
             break;
             default:
             printf("Input tidak valid!!!\n");
