@@ -321,7 +321,7 @@ void simulasi(){
             statusHadiah[k] = 1; // Menandai hadiah sudah dimakan
         }
     }
-    // - Menampilkan papan permainan -
+    // Menampilkan papan permainan
     for(int i=1; i<=panjang+3; i++){
         printf("|"); // Mencetak dinding pembatas sebelah kanan
         for(int j=1; j<=lebar; j++){
@@ -381,7 +381,7 @@ int main(){
             simulasi();
             break;
             case 4:
-            exit(0);
+            system("exit");
             break;
             default:
             printf("Input tidak valid!!!\n");
