@@ -284,6 +284,7 @@ void simulasi(){
     int jumlahHadiah = 0;
     int statusHadiah[100] = {0}; // Menambahkan array status (0=utuh, 1=dimakan)
 
+    // Membaca data hadiah dari file thadiah.txt
     FILE *fh = fopen("thadiah.txt", "r");
     if(fh != NULL){
         while(fscanf(fh, "%d %d %s %d",
@@ -308,7 +309,7 @@ void simulasi(){
     for(int langkah = 0; langkah < jumlahGerak; langkah++){
 
         if (langkah > 0){
-            system("cls");    // membersihkan layar sebelum menampilkan animasi berikutnya
+            system("cls");    // Membersihkan layar sebelum menampilkan animasi berikutnya
         }
         
     int posisiX = daftarGerak[langkah].x;
@@ -320,9 +321,9 @@ void simulasi(){
             statusHadiah[k] = 1; // Menandai hadiah sudah dimakan
         }
     }
-    
+    // - Menampilkan papan permainan -
     for(int i=1; i<=panjang+3; i++){
-        printf("|");
+        printf("|"); // Mencetak dinding pembatas sebelah kanan
         for(int j=1; j<=lebar; j++){
             if(i==1||i==panjang+3){
                 printf("-");
@@ -330,33 +331,35 @@ void simulasi(){
                 if((j - 1) == posisiX && (i - 2) == posisiY){
                     printf("O");
                 } else {
-                    int adaHadiah = 0;
-                    for(int k=0; k<jumlahHadiah; k++){
+                    int adaHadiah = 0; // Menandai ada bagian hadiah yang dicetak di posisi 
+                    for(int k=0; k<jumlahHadiah; k++){ // Iterasi seluruh gambar hadiah 
                         if((i - 2) == hList[k].y && statusHadiah[k] == 0){ // Mengecek posisi dan memastikan hadiahnya belum dimakan   
                             char teks[30];
+                            // Menggabungkan string nama hadiah dan skor menjadi satu string  
                             sprintf(teks, "%s%d", hList[k].nama, hList[k].skor);
                             int len = strlen(teks);
+                            // Mengecek apakah posisi papan sekarang berada dalam rentang panjang teks hadiah
                             if((j-1) >= hList[k].x && (j-1) < hList[k].x + len){
                                 // Memilih warna berdasarkan indeks
                                 int warnaIndex = k % jumlahWarna;
                                 // Mencetak hadiah dengan warna yang kepilih
                                 printf("%s%c%s", warnaHadiah[warnaIndex], teks[j-1 - hList[k].x], RESET);
-                                adaHadiah = 1;
-                                break;
+                                adaHadiah = 1; // Menandai bahwa posisi grid sudah terisi oleh potongan teks hadiah
+                                break; // Keluar dari loop jika sudah mencetak hadiah
                             }
                         }
                     }
-                    //Jika tidak ada hadiah, menampilkan spasi
+                    // Jika tidak ada potongan teks hadiah, menampilkan spasi kosong
                     if(adaHadiah == 0){
                     printf(" ");
                     }
                 }
             }
         }
-        printf("|\n");
+        printf("|\n"); // Mencetak dinding kanan papan dan beralih ke baris berikutnya
     }
 printf("\nSkor O: %d\n", skorTotal);
-wait(0.1);     // memberi jeda 0,1 detik sblm O berpindah ke koordinat brktnya
+wait(0.1);     // Memberi jeda 0,1 detik sblm O berpindah ke koordinat brktnya
 }
 }
 
